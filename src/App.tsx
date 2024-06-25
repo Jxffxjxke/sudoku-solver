@@ -7,18 +7,6 @@ function App() {
     Array.from({ length: 9 }, () => Array(9).fill(""))
   );
 
-  useEffect(() => {
-
-    board.flat().forEach((item, index) => {
-      if (!item.length) {
-        const gridItem = document.querySelector(`.grid-item-${index}`);
-        if (gridItem) {
-          gridItem.style.backgroundColor = "green";
-        }
-      }
-    });
-  }, [board]);
-
   const clearBoard = () => {
     setBoard(Array.from({ length: 9 }, () => Array(9).fill("")));
   };

@@ -1,6 +1,6 @@
 import "../styling/App.css";
 import SudokuBoard from "../components/Sudoku-Board.tsx";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 function App() {
   const [board, setBoard] = useState<string[][]>(

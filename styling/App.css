@@ -4,6 +4,13 @@
 
 .App {
   text-align: center;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.App-header {
+  font-size: 6vw;
+  padding: 5vw;
 }
 
 .grid-wrap {
@@ -17,27 +24,92 @@
   border: 2px solid #333;
   border-radius: 5px;
   overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .sudoku-row {
   display: flex;
+  width: 100%;
 }
 
 .sudoku-cell {
-  width: 60px;
-  height: 60px;
+  width: 11.11%; 
+  height: calc(90vw / 9);
+  box-sizing: border-box;
   text-align: center;
-  font-size: 16px;
+  font-size: 4vw;
   border: 1px solid #ccc;
+  line-height: calc(90vw / 9);
+}
+
+@media (min-width: 670px) {
+  .sudoku-board {
+    width: 670px; /* Fixed width for the board */
+  }
+
+  .sudoku-cell {
+    height: calc(670px / 9); /* Ensure the height is proportional to the fixed width */
+    font-size: calc(670px / 30); /* Adjust font size accordingly */
+    line-height: calc(670px / 9); /* Vertically center text within the cell */
+  }
+
+  .App-header {
+    font-size: 30px; /* Fixed font size for the header */
+    padding: 20px; /* Fixed padding for the header */
+  }
+
+  .btn {
+    padding: 20px; /* Fixed padding for the button */
+    font-size: 20px; /* Fixed font size for the button */
+  }
 }
 
 .sudoku-cell:focus {
   outline: none;
-  border-color: dodgerblue;
-  box-shadow: 0 0 5px dodgerblue;
+  border: 1px solid rgb(0, 254, 68);
+  box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+              inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+              -0.5px -0.5px 0px rgba(255,255,255,1),
+              0.5px 0.5px 0px rgba(0,0,0,0.15),
+              0px 12px 10px -10px rgba(0,0,0,0.05);
 }
 
-.grid-button {
-  padding: 1rem;
-  
+.btn {
+  display: grid;
+  place-items: center;
+  background: #e3edf7;
+  padding: 3vw;
+  font-size: 3vw;
+  border-radius: 10px;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0);
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.btn:hover {
+  box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+              inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+              -0.5px -0.5px 0px rgba(255,255,255,1),
+              0.5px 0.5px 0px rgba(0,0,0,0.15),
+              0px 12px 10px -10px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  transform: translateY(0.5em);
+}
+
+.btn svg {
+  transition: transform 0.5s;
+}
+
+.btn:hover svg {
+  transform: scale(0.9);
+  fill: #333333;
+}
+
+.pad-auto {
+  margin: auto;
 }

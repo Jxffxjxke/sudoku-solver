@@ -1,6 +1,6 @@
 import "../styling/App.css";
 import SudokuBoard from "../components/Sudoku-Board.tsx";
-import { useState} from "react";
+import { useState } from "react";
 
 function App() {
   const [board, setBoard] = useState<string[][]>(
@@ -74,15 +74,22 @@ function App() {
       </header>
       <div className="grid-wrap">
         <SudokuBoard board={board} setBoard={setBoard} />
-        <button className="btn" onClick={solve}>
-          Solve
-        </button>
-        <button className="btn" onClick={clearBoard}>
-          Clear
-        </button>
+        <div id="btn-wrapper">
+          <button className="btn" onClick={solve}>
+            Solve
+          </button>
+          <button className="btn" onClick={clearBoard}>
+            Clear
+          </button>
+        </div>
       </div>
-      <footer>
-        <button className="btn pad-auto">
+      <footer className="App-footer">
+        <button
+          className="btn github"
+          onClick={() => {
+            window.open("https://github.com/jxffxjxke");
+          }}
+        >
           <svg
             width="40"
             height="40"

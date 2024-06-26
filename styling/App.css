@@ -1,11 +1,15 @@
 #root {
   background-color: aliceblue;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App {
   text-align: center;
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
 }
 
 .App-header {
@@ -36,7 +40,7 @@
 }
 
 .sudoku-cell {
-  width: 11.11%; 
+  width: 11.11%;
   height: calc(90vw / 9);
   box-sizing: border-box;
   text-align: center;
@@ -47,57 +51,51 @@
 
 @media (min-width: 670px) {
   .sudoku-board {
-    width: 670px; /* Fixed width for the board */
+    width: 650px;
   }
 
   .sudoku-cell {
-    height: calc(670px / 9); /* Ensure the height is proportional to the fixed width */
-    font-size: calc(670px / 30); /* Adjust font size accordingly */
-    line-height: calc(670px / 9); /* Vertically center text within the cell */
+    height: calc(670px / 9);
+    font-size: calc(670px / 30);
+    line-height: calc(670px / 9);
   }
 
   .App-header {
-    font-size: 30px; /* Fixed font size for the header */
-    padding: 20px; /* Fixed padding for the header */
-  }
-
-  .btn {
-    padding: 20px; /* Fixed padding for the button */
-    font-size: 20px; /* Fixed font size for the button */
+    font-size: 50px;
+    padding: 20px;
   }
 }
 
 .sudoku-cell:focus {
   outline: none;
   border: 1px solid rgb(0, 254, 68);
-  box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
-              inset -4px -4px 6px -1px rgba(255,255,255,0.7),
-              -0.5px -0.5px 0px rgba(255,255,255,1),
-              0.5px 0.5px 0px rgba(0,0,0,0.15),
-              0px 12px 10px -10px rgba(0,0,0,0.05);
+  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+    -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+    0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
 }
 
 .btn {
   display: grid;
   place-items: center;
+  margin-top: 2vw;
   background: #e3edf7;
-  padding: 3vw;
-  font-size: 3vw;
+  padding: 15px;
+  font-size: 20px;
   border-radius: 10px;
-  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
-              -6px -6px 10px -1px rgba(255,255,255,0.7);
-  border: 1px solid rgba(0,0,0,0);
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0);
   cursor: pointer;
   transition: transform 0.5s;
 }
 
 .btn:hover {
-  box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
-              inset -4px -4px 6px -1px rgba(255,255,255,0.7),
-              -0.5px -0.5px 0px rgba(255,255,255,1),
-              0.5px 0.5px 0px rgba(0,0,0,0.15),
-              0px 12px 10px -10px rgba(0,0,0,0.05);
-  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+    -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+    0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   transform: translateY(0.5em);
 }
 
@@ -110,6 +108,16 @@
   fill: #333333;
 }
 
-.pad-auto {
+.App-footer {
+  align-self: flex-end;
+  margin-bottom: 5%;
+}
+
+.github {
   margin: auto;
+}
+
+#btn-wrapper {
+  display: flex;
+  justify-content: space-around;
 }
